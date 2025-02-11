@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Even number shows</h1>
+<input type="text" placeholder="Enter number" id="numberInput">
+<button onClick="ForEachUsevenNumber()">Submit</button>
+<h3 id="result"></h3>
+
+<script>
+ function ForEachUsevenNumber() {
+ let inputNumber = document.getElementById("numberInput").value;
+ let converInputNumberTOArray = inputNumber.split(",").map(num => parseInt(num.trim(), 10));
+ let evenNumberArray = [];
+ converInputNumberTOArray.forEach(num => {
+   if (num % 2 === 0) {
+    evenNumberArray.push(num);
+   }
+    });
+    document.getElementById("result").textContent = evenNumberArray.join(", ")
+}
+</script>
+</body>
+</html>
