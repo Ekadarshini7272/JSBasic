@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Even number shows</h1>
+<input placeholder="Enter number" id="numberInput">
+<button onClick="FilterEvenNumber()">Filter</button>
+<h3 id="result"></h3>
+
+<p id="demo"></p>
+
+<script>
+function FilterEvenNumber () {
+    let inputNumber = document.getElementById("numberInput").value;
+    let converInputNumberTOArray = inputNumber.split(",").map(num => parseInt(num.trim(), 10));
+    let fiterNumberArray = converInputNumberTOArray.filter(num => num % 2 === 0);
+    document.getElementById("result").textContent = fiterNumberArray.join(", ")
+}
+</script>
+
+</body>
+</html>
+<!-- Steps -->
+ <!-- 
+  Enter the number as string 
+  convert that string to array for individual number using .split() so after it will separate all number as in array 
+  Then parseInt will covert that string to number
+  Then filter from that number for even number
+  Then show in UI the number using result id-->
+  
+<!-- "1, 2, 3, 4, 5, 6"  (string)
+↓
+["1", " 2", " 3", " 4", " 5", " 6"]  (split into an array)
+↓
+[1, 2, 3, 4, 5, 6]  (converted to numbers)
+↓
+[2, 4, 6]  (only even numbers)
+↓
+"2, 4, 6"  (displayed in the HTML) -->
