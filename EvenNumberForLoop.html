@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Even number shows using for loop</h1>
+    <input type="text" placeholder="Enter number comma-separated" id="inputNumber">
+    <button onClick="EvenNumberForLoop()">Submit</button>
+    <h3 id="result"></h3>
+    <script>  
+    function EvenNumberForLoop() {
+        let inputValue = document.getElementById("inputNumber").value;
+        let convertStringToArray = inputValue.split(",").map(num => parseInt(num.trim(), 10));
+        let evenNumbers = [];
+         for( i=0; i < convertStringToArray.length; i++) {
+            if(convertStringToArray[i] % 2 === 0) {
+                evenNumbers.push(convertStringToArray[i])
+            }
+         }
+        document.getElementById("result").textContent = evenNumbers.join(", ");
+    }
+    </script>
+</body>
+</html>

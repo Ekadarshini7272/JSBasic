@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Even number shows using reduce</h1>
+    <input type="text" placeholder="enter name(comma-separated)" id="numberInput">
+    <button onClick="ReduceEvenNumbers()">Submit</button>
+    <h3 id="result"></h3>
+    <script>  
+        function ReduceEvenNumbers() {
+          let inputValue = document.getElementById("numberInput").value;
+          let converInputNumberTOArray = inputValue.split(",").map(num => parseInt(num.trim(), 10));
+          let evenNumbersList = converInputNumberTOArray.reduce((acc, num) => {
+            if (num % 2 ===0){
+                acc.push(num)
+            }
+            return acc;
+          }, []);
+          document.getElementById("result").textContent = evenNumbersList.join(", ")
+        }
+    </script>
+    </body>
+    </html>
