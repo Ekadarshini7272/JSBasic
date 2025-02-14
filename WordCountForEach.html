@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Word Counter</title>
+    </head>
+<body>
+    <h1>Word Counts from Input Sentence using FOREACH Loop</h1>
+    <textarea type="text" placeholder="Enter sentence..." id="inputsentence"></textarea>
+    <button onClick="CountWordForEachUse()">Submit</button>
+    <pre id="result"></pre>
+    
+    <script>  
+    function CountWordForEachUse() {
+        let sentence = document.getElementById("inputsentence").value;
+        let words = sentence.toLowerCase().replace(/[^\w\s]/g, "").split(/\s+/);
+        let wordCounts = {}
+        words.forEach(word => {
+            if(word) {
+                wordCounts[word] = (wordCounts[word] || 0)+1
+            }
+        });
+        document.getElementById("result").textContent = JSON.stringify(wordCounts, null)
+    }
+    </script>
+</body>
+</html>

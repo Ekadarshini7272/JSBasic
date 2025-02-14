@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Word Counter</title>
+    </head>
+<body>
+    <h1>Word Counts from Input Sentence using Reduce Loop</h1>
+   <textarea placeholder="Enter sentence" id="inputfield"></textarea>
+   <button onclick="WordCountReduce()">Submit</button>
+   <h3 id="result"></h3>
+<script>
+   function WordCountReduce(){
+    let inputValue = document.getElementById("inputfield").value;
+    let convertStringToSentence = inputValue.toLowerCase().replace(/[^\w\s]/g, "").split(/\s+/);
+   let wordCount = convertStringToSentence.reduce((acc, words) => {
+    acc[words] = (acc[words] || 0) + 1;
+    return acc;
+   }, {})
+   document.getElementById("result").textContent = JSON.stringify(wordCount, null);
+   }
+</script>
+</body>
+</html>

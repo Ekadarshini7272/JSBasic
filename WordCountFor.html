@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Word Counter</title>
+    </head>
+<body>
+    <h1>Word counter input a sentence and count the word using for loop</h1>
+    <textarea placeholder="Enter sentence" id="inputValue"></textarea>
+    <button onClick="WordCountEvent()">Submit</button>
+    <h3 id="result"></h3>   
+<script>
+    function WordCountEvent() {
+        let inputfield = document.getElementById("inputValue").value;
+        let convertStringToSentence = inputfield.toLowerCase().replace(/[^\w\s]/g, "").split(/\s+/);
+        let countWords = {}
+        for(let i = 0; i< convertStringToSentence.length; i++) {
+            let words = convertStringToSentence[i]
+            if (words){
+                countWords[words] =  (countWords[words] || 0) + 1 
+            }
+        }
+        document.getElementById("result").textContent = JSON.stringify(countWords, null)
+    }
+</script>
+</body>
+</html>
