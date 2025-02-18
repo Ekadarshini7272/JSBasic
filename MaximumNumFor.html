@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Even number shows using reduce</h1>
+    <input placeholder="Enter number comma-separated" id="inputNumber">
+    <button onClick="handleMaxNumFor()">Submit</button>
+    <h3 id="result"></h3>
+<script> 
+function  handleMaxNumFor() {
+    let inputValue = document.getElementById("inputNumber").value;
+    let convertToArray = inputValue.split(",").map(num => parseFloat(num.trim()))
+    if(convertToArray.length === 0 || convertToArray.some(isNaN)) {
+        document.getElementById("result").innerHTML="Please check only number should be provide!";
+        return;
+    }
+    let maxNum = convertToArray[0]
+    for (let i = 1; i< convertToArray.length; i++) {
+        if(convertToArray[i] > maxNum){
+            maxNum = convertToArray[i]
+        }
+    }
+    document.getElementById("result").innerHTML = `${maxNum}`
+}
+</script>
+</body>
+</html>
