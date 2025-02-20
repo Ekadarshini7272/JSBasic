@@ -1,0 +1,39 @@
+<!Doctype html>
+<html>
+    <title></title>
+    <head></head>
+    <body>
+        <input type="text" placeholder="Enter your number" id="inputValue">
+        <button onclick="handleRemoveDuplicateData()">Submit</button>
+        <h3 id="result"></h3>
+        <script>
+           function handleRemoveDuplicateData() {
+            let inputField = document.getElementById("inputValue").value;
+            let converToString = inputField.split(",").map(num => num.trim());
+            let removeDuplicateNum = [];
+            for (let i = 0; i<converToString.length; i++){
+                if (!removeDuplicateNum.includes(converToString[i])){
+                    removeDuplicateNum.push(converToString[i])
+                }
+            }
+            document.getElementById("result").innerHTML= removeDuplicateNum.join(",");
+           }
+        </script>
+</body>
+</html>
+
+<!-- Example Input:
+User enters:
+1, 2, 2, 3, 4, 4, 5
+split(",") converts it into an array:
+
+["1", "2", "2", "3", "4", "4", "5"]
+map(num => num.trim()) ensures no spaces exist.
+Step-by-Step Execution of the Loop:
+Initial State:
+let uniqueNumbers = []; // Empty array to store unique values
+Iteration 1 (i = 0):
+numberArray[0] = "1"
+Check: "1" is not in uniqueNumbers
+Action: Add "1"
+uniqueNumbers = ["1"] -->

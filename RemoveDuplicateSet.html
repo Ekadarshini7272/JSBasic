@@ -1,0 +1,19 @@
+<!Doctype html>
+<html>
+    <title></title>
+    <head></head>
+    <body>
+        <input type="text" placeholder="Enter number" id="inputValue">
+        <button onclick="handleDuplicateNum()">Submit</button>
+        <h3 id="result"></h3>
+    <script>
+        function handleDuplicateNum() {
+            let inputField = document.getElementById("inputValue").value;
+            let convertToArray = inputField.split(",").map(num=> num.trim());
+            let uniqueNum = [...new Set(convertToArray)];
+
+            document.getElementById("result").innerHTML = uniqueNum.join(", ")
+        }
+    </script>
+</body>
+</html>
