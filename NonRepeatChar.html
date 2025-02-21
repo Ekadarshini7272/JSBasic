@@ -1,0 +1,26 @@
+<!Doctype html>
+<html>
+    <title></title>
+    <head></head>
+    <body>
+        <input type="text" placeholder="Enter String" id="inputValue">
+        <button onClick="handleUniqueChar()">Submit</button>
+        <h3 id="result"></h3>
+    <script>
+        function handleUniqueChar(){
+            let inputStr = document.getElementById("inputValue").value;
+            let charStr = {};
+            for(let char of inputStr){
+              charStr[char] = (charStr[char] || 0) +1
+            }
+            for(let char of inputStr) {
+                if(charStr[char] === 1){
+                    document.getElementById("result").innerHTML = "This is the first non-repeating char:" + char
+                    return
+                }
+            }
+            document.getElementById("result").innerHTML = "There is no non-repeating char";
+        }
+    </script>
+</body>
+</html>
